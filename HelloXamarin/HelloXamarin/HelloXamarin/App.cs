@@ -12,6 +12,7 @@ namespace HelloXamarin
         private Entry syötekenttä;
         private Label arvauksenTulosLabel;
         private int oikeaLuku;
+        private int laskuri;
         public App()
         {
             Random rnd = new Random();
@@ -21,6 +22,16 @@ namespace HelloXamarin
             Button arvaaNappi = new Button();
             arvaaNappi.Text = "Arvaa";
             arvaaNappi.Clicked += arvaaNappi_Clicked;
+
+            syötekenttä = new Entry
+            {
+                Keyboard = Keyboard.Numeric,
+                Text = ""
+            };
+            arvauksenTulosLabel = new Label();
+            arvauksenTulosLabel.Text = "";
+            laskuri = 0;
+
             // The root page of your application omaaaaa....
             MainPage = new ContentPage
             {
@@ -50,20 +61,29 @@ namespace HelloXamarin
 
         private void arvaaNappi_Clicked(object sender, EventArgs e)
         {
+            laskuri = laskuri + 1;
             int arvaus = int.Parse(syötekenttä.Text);
             if (arvaus < oikeaLuku)
             {
-                arvauksenTulosLabel.Text = "Luku on suurempi";
+                arvauksenTulosLabel.Text = "Luku on suurempi (" + laskuri.ToString() + ") kuin " + arvaus.ToString();
+                syötekenttä.Text = "";
+                syötekenttä.Focus();
             }
             else if (arvaus > oikeaLuku)
             {
-                arvauksenTulosLabel.Text = "Luku on pienempi";
+                arvauksenTulosLabel.Text = "Luku on pienempi (" + laskuri.ToString() +") kuin " + arvaus.ToString();
+                syötekenttä.Text = "";
+                syötekenttä.Focus();
+
             }
             else if (arvaus == oikeaLuku)
             {
                 arvauksenTulosLabel.Text = "Jee - tismalleen!";
                 Random rnd = new Random();
                 oikeaLuku = rnd.Next(1, 21);
+                syötekenttä.Text = "";
+                syötekenttä.Focus();
+                laskuri = 0;
             }
         }
 
