@@ -32,33 +32,33 @@ namespace HelloXamarin
             arvauksenTulosLabel.Text = "";
             laskuri = 0;
 
-            MainPage = new EkaSivu();
+            //MainPage = new EkaSivu();
 
             //The root page of your application omaaaaa....
-            //MainPage = new ContentPage
-            //{
-            //    Content = new StackLayout
-            //    {
-            //        //VerticalOptions = LayoutOptions.Center,
-            //        Children = {
-            //            new Label {
-            //                HorizontalTextAlignment = TextAlignment.Center,
-            //                Text = "Eka mobiiliAppsi",
-            //                TextColor = Color.Yellow
-            //            },
+            MainPage = new ContentPage
+            {
+                Content = new StackLayout
+                {
+                    //VerticalOptions = LayoutOptions.Center,
+                    Children = {
+                        new Label {
+                            HorizontalTextAlignment = TextAlignment.Center,
+                            Text = "Eka mobiiliAppsi",
+                            TextColor = Color.Yellow
+                        },
 
-            //            new Label {
-            //                HorizontalTextAlignment = TextAlignment.Center,
-            //                Text = "Versio 0,002",
-            //                TextColor = Color.Silver
-            //            },
+                        new Label {
+                            HorizontalTextAlignment = TextAlignment.Center,
+                            Text = "Versio 0,98",
+                            TextColor = Color.Silver
+                        },
 
-            //            syötekenttä,
-            //            arvaaNappi,
-            //            arvauksenTulosLabel
-            //        }
-            //    }
-            //};
+                        syötekenttä,
+                        arvaaNappi,
+                        arvauksenTulosLabel
+                    }
+                }
+            };
         }
 
         private void arvaaNappi_Clicked(object sender, EventArgs e)
