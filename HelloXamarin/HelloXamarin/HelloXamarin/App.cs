@@ -32,31 +32,33 @@ namespace HelloXamarin
             arvauksenTulosLabel.Text = "";
             laskuri = 0;
 
-            // The root page of your application omaaaaa....
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    //VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Eka mobiiliAppsi",
-                            TextColor = Color.Yellow
-                        },
+            MainPage = new EkaSivu();
 
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Versio 0,002",
-                            TextColor = Color.Silver
-                        },
+            //The root page of your application omaaaaa....
+            //MainPage = new ContentPage
+            //{
+            //    Content = new StackLayout
+            //    {
+            //        //VerticalOptions = LayoutOptions.Center,
+            //        Children = {
+            //            new Label {
+            //                HorizontalTextAlignment = TextAlignment.Center,
+            //                Text = "Eka mobiiliAppsi",
+            //                TextColor = Color.Yellow
+            //            },
 
-                        syötekenttä,
-                        arvaaNappi,
-                        arvauksenTulosLabel
-                    }
-                }
-            };
+            //            new Label {
+            //                HorizontalTextAlignment = TextAlignment.Center,
+            //                Text = "Versio 0,002",
+            //                TextColor = Color.Silver
+            //            },
+
+            //            syötekenttä,
+            //            arvaaNappi,
+            //            arvauksenTulosLabel
+            //        }
+            //    }
+            //};
         }
 
         private void arvaaNappi_Clicked(object sender, EventArgs e)
@@ -65,20 +67,20 @@ namespace HelloXamarin
             int arvaus = int.Parse(syötekenttä.Text);
             if (arvaus < oikeaLuku)
             {
-                arvauksenTulosLabel.Text = "Luku on suurempi (" + laskuri.ToString() + ") kuin " + arvaus.ToString();
+                arvauksenTulosLabel.Text = "Luku on suurempi kuin " + arvaus.ToString() + " (" + laskuri.ToString() + ")";
                 syötekenttä.Text = "";
                 syötekenttä.Focus();
             }
             else if (arvaus > oikeaLuku)
             {
-                arvauksenTulosLabel.Text = "Luku on pienempi (" + laskuri.ToString() +") kuin " + arvaus.ToString();
+                arvauksenTulosLabel.Text = "Luku on pienempi kuin " + arvaus.ToString() + " (" + laskuri.ToString() +")";
                 syötekenttä.Text = "";
                 syötekenttä.Focus();
 
             }
             else if (arvaus == oikeaLuku)
             {
-                arvauksenTulosLabel.Text = "Jee - tismalleen!";
+                arvauksenTulosLabel.Text = "Jee - tismalleen! Arvasit " + laskuri.ToString() + " kertaa";
                 Random rnd = new Random();
                 oikeaLuku = rnd.Next(1, 21);
                 syötekenttä.Text = "";
