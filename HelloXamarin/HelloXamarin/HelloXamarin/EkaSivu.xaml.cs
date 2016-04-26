@@ -10,9 +10,6 @@ namespace HelloXamarin
 {
     public partial class EkaSivu : ContentPage
     {
-        public EkaSivu()
-        {
-            InitializeComponent();
-        }
+
     }
 }
