@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -7,6 +8,26 @@ using Xamarin.Forms;
 
 namespace HelloXamarin
 {
+    public class DateParsing
+    {
+        public static DateTime ParseFinnishDate (string date)
+        {
+            DateTime result = DateTime.MinValue;
+            string finnishformat = "d.M.yyyy";
+            try
+            {
+                CultureInfo fiFi = new CultureInfo("fi-FI");
+                result = (DateTime.ParseExact(date, finnishformat, fiFi)) ;
+            }
+            catch (Exception ex)
+            {
+                //TODO: kirjoita poikkeus lokiin
+                result = DateTime.MinValue;
+            }
+            //palautetaan arvo
+            return result;
+        }
+    }
     public class App : Application
     {
         private Entry syötekenttä;
